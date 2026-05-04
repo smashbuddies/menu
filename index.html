@@ -727,6 +727,20 @@ body.rtl .items-grid.bar-view .offer-badge{
   .search-wrap{padding:10px 48px}
   .offers-strip{padding:12px 48px}
 }
+
+
+
+/* Ensure the row is a flex container */
+.header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* The back button stays left, others move right */
+.icon-btn:first-child {
+    margin-right: auto;
+}
 </style>
 <script>
 (function(){
@@ -763,6 +777,13 @@ body.rtl .items-grid.bar-view .offer-badge{
     </div>
     <!-- Row 2: All action buttons in one line -->
     <div class="hdr-row2">
+	
+	<button class="icon-btn" title="Back to Menu" 
+        onclick="window.location.href='https://github.io'" 
+        style="margin-right: auto;">
+	  ⬅️
+	</button>
+	
       <button class="lang-btn" id="langBtn" onclick="toggleLang()" title="Switch language">EN | عر</button>
       <button class="icon-btn" title="Search" onclick="toggleSearch()">🔍</button>
       <button class="cat-toggle-btn" id="catToggleBtn" onclick="toggleCategoryBar()">☰ Menu</button>
@@ -1731,7 +1752,7 @@ function showFatalError(msg){
 const HARDCODED_INFO = [
   ['name','description','location','logo','banner','cafeteria number','rider number','track url','name_ar','description_ar'],
   [
-   'Smash Buddies','','https://maps.app.goo.gl/dLuHf6hGuUZrRGkMA','',
+   'Smash Buddies','','https://maps.app.goo.gl/dLuHf6hGuUZrRGkMA','https://smashbuddies.no/wp-content/uploads/2024/04/about.jpg',
    '','+97192221392','','',
    '',''
   ]
@@ -1739,15 +1760,15 @@ const HARDCODED_INFO = [
 
 const HARDCODED_ITEMS = [
 // [cat_en, Name_en, desc_en, price, offer_price, cat_icon, image_url, tags, cat_ar, Name_ar, desc_ar]
-['Additions','Garlic Dish','','5','','','https://menus.sfo3.cdn.digitaloceanspaces.com/3503f98908d438641ec270eccecb2ff0/WlrcYiPVOhg7FvsMN3xMIPNkNdOsLEHFceVvWFYbCmbFg3WGCDkt1BiumI2KgP461RdumImOdQsxOEjrxfgmoX1FBBAGj8sNAmNtLACzrgzVOqWfFPt7D0F0NtayaDXP4DQZhoG7i9xorrc41tqJwO.png','Best Seller','إضافات','طبق الثوم',''],
-['Barbecued Meats','Feathers','','79','','','https://menus.sfo3.cdn.digitaloceanspaces.com/ec2378ec7ce4ca4707a8ec52397791ed/jsB2hOkwRDrUy4dN6vXBXRorDZjjdAX05XtVCiwPft3UHfaWAi4K2wdtF3hqZcrZlRYRdiSMhBnVmBz7MeOOAy5Dwh0le0O5L6xJB2QEzk6kuv60uYBPBg5LsX52rrCmUwa3OXpUCzDNWNDUAff7Sa.jpg','Spicy','اللحوم المشوية','الريش',''],
-['Coffee And Sweets','Syrian Flower Pot','','29','','','https://thumbs.dreamstime.com/b/glass-water-6416721.jpg','Best Seller','القهوة والحلويات','أصيص زهور سوري',''],
-['Natural Drinks','Mango','','14','','','https://thumbs.dreamstime.com/b/glass-water-6416721.jpg','Best Seller , Veg','المشروبات الطبيعية','مانجو',''],
-['Oven','Margherita Pizza','','40','','','https://menus.sfo3.cdn.digitaloceanspaces.com/3b97858241bd24ddd0accc1ebd4d0ac4/Ue0GK5HgXhPRjPfGFM1mUJDESLcFGHP1oCp8EYDS24tk8BA0LCy5V1qOYsQJlYcLHmoqDL0HcjB8RQnWvrtFa5vrEYdrY6SdwUSw6i1wO7eoqCHpFClhWNVavBGW84Y0FjcPug9dXxGNrCADOnUKri.jpg','','فرن','بيتزا مارغريتا',''],
-['Selmlek Kitchen','Mujaddara (A Dish Made With Mujaddara)','','53','','','https://menus.sfo3.cdn.digitaloceanspaces.com/4a43e33a27fea4da3285dd069933731c/w6OZ56Qmd7ZlTNE3i7kbriZjYmWoZGMzP9im3B0hyfRmaLubv1rNTyV4FyVOTunM7tlHqsrGhuCjM0NpeyJfaX2qHmvn9XaJQD3coV5tKx3KYGbf8owxINshlniO4pEoGSUM3ICr9ewJZgw7tGH1hc.jpg','','مطبخ سيلمليك','مجدرة (طبق مصنوع من المجدرة)',''],
-['Shawarma','Half A Grilled Chicken','With Special Levantine Seasoning','33','','','https://menus.sfo3.cdn.digitaloceanspaces.com/91e8a9835b7d7fb115e7220f3c1845e7/HCxsrhhuntafAd10AdIZrpnX500hbcnEu7f3U6ahhcD5dbCjbpkbLKcF4hhRQoAHlI8GWe1g2vCw0Dsx6Lz0Y5cD82oj3r6MveuSMok5eUz9wIgtS0qmdMQUFoQQebtdsKyekdEmtQYk1ghq0fQkZ9.jpg','Best Seller','شاورما','نصف دجاجة مشوية','مع توابل شامية خاصة'],
-['Soft Drinks And Water','Glass Water','','5','','','https://thumbs.dreamstime.com/b/glass-water-6416721.jpg','','المشروبات الغازية والماء','كوب ماء','']
-
+['Burgers','The Original','Signature smash burger with cheese and homemade Yacht sauce','15','11','','https://drive.google.com/thumbnail?id=1bu09I0FwOx-OzWy3K8q89BWtAx6Nywta&sz=w1000','smash, burger, cheese','البرغر','الأصل','برجر سماش مميز مع الجبن وصلصة يخت منزلية الصنع'],
+['Burgers','All American','American cheese, lettuce, tomato, onion, pickles, mayo & mustard','18','13','','https://drive.google.com/thumbnail?id=1uwW2Xsc9vs8y7oBxQd5OnSzo7LJhNF9c&sz=w1000','burger, classic','البرغر','أمريكي بالكامل','جبنة أمريكية، خس، طماطم، بصل، مخلل، مايونيز وخردل'],
+['Burgers','Patty Melt','Texas toast, extra American cheese, Yacht sauce','15','12','','https://drive.google.com/thumbnail?id=1SrJm6pXQmT8NN9ehbFgnmlXHL5_3WaXf&sz=w1000','melt, toast','البرغر','باتي ميلت','خبز تكساس محمص، جبنة أمريكية إضافية، صلصة اليخت'],
+['Burgers','Buddy Pounder','Cheese, pickles, onion, ketchup, mustard on brioche bun','15','12','','https://drive.google.com/thumbnail?id=11uEH-IbJNjolJI455pOPebxX-eWTU1vH&sz=w1000','burger, sauce','البرغر','بادي باوندر','جبنة، مخلل، بصل، كاتشب، خردل على خبز بريوش'],
+['Burgers','Chicken Bacon Ranch','Chicken patties, Swiss cheese, bacon, ranch sauce','17','14','','https://drive.google.com/thumbnail?id=1Qqd_Os-ozZPkQPzZ2fYPvT0i9wFdV1Vz&sz=w1000','chicken, bacon','البرغر','دجاج بيكون رانش','قطع دجاج، جبنة سويسرية، لحم مقدد، صلصة رانش'],
+['Burgers','Tater Tots','Crispy seasoned tater tots with dipping sauce','9','5','','https://drive.google.com/thumbnail?id=1ujqJS8RWDDu23MbLVCa_0QwQT2DUwVQy&sz=w1000','sides, fries','البرغر','قطع البطاطا المقلية','قطع بطاطا مقلية مقرمشة ومتبلة مع صلصة تغميس'],
+['Burgers','Loaded Tots','Tots with beef patties, cheese, onions, sauce','20','17','','https://drive.google.com/thumbnail?id=1d8mbCbqnJ6GUCin28Y7X2TxtQZLRb3yD&sz=w1000','loaded, fries','البرغر','أطفال محملون','بطاطس مقلية مع قطع لحم بقري، جبن، بصل، وصلصة'],
+['Burgers','Cheddar Devil','Cheddar sausage (mild/spicy)','12','9','','https://drive.google.com/thumbnail?id=1Qqd_Os-ozZPkQPzZ2fYPvT0i9wFdV1Vz&sz=w1000','sausage, spicy','البرغر','شيدر ديفيل','سجق الشيدر (متوسط ​​الحرارة/حار)'],
+['Burgers','Burger Dog','Smash patty combined with hot dog, sauces & toppings','15','12','','https://drive.google.com/thumbnail?id=1uwW2Xsc9vs8y7oBxQd5OnSzo7LJhNF9c&sz=w1000','fusion, hotdog','البرغر','برجر دوج','قطعة لحم مهروسة مع نقانق، وصلصات، وإضافات أخرى']
 ];
 
 // ═══════════════════════════════════════════════════
